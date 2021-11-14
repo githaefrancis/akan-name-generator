@@ -51,7 +51,9 @@ const displayResponse=(responseName,birthDayOfWeek)=>{
 
 
   document.querySelector('#day-display').innerHTML=birthDayOfWeek;
-  document.querySelector('#akan-answer').innerHTML=`Your Akan name is ${responseName}`;
+  let akanAnswer=document.querySelector('#akan-answer');
+  akanAnswer.innerHTML=`Your Akan name is ${responseName}`;
+  document.querySelector('.response').style.display="block";
 }
 
 document.addEventListener('DOMContentLoaded',(event)=>{
