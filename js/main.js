@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded',(event)=>{
     //stop the page from reloading
     event.preventDefault();
     alert('congratulations');
+    let day=parseInt(document.querySelector('#day').value);
+    let month=parseInt(document.querySelector('#month'.value));
+    let year=parseInt(document.querySelector('#year'));
+    alert(day);
+
     });
     
 });
