@@ -107,8 +107,12 @@ nav .nav-link {
   /* margin-left: 50%;
   transform: translate(-50%, 0%); */
 } 
-form ~ div{
-  margin-left: 30px;
+#birthdaySubmit{
+  margin-left: 15%
+  
+}
+.form-heading{
+  margin-left:15%;
 }
 form #radio{
 
