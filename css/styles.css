@@ -292,4 +292,7 @@ body {
   #close-response {
     margin-left: 80%;
   }
+  .about-footer{
+    bottom: -220px;
+  }
 }
