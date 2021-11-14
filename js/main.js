@@ -20,28 +20,23 @@ let maleAkan = {
 };
 
 let akanNames = [femaleAkan, maleAkan];
+let days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 let day=16;
 let month=12;
 let year=1996;
 
-let CC=19;
-let MM=1;
-let YY=75;
-let DD=15; 
-let dayOfTheWeek=(((CC/4)-2*CC-1)+(Math.floor(5*YY/4))+(Math.floor(26*(MM+1)/10))+DD)%7;
-console.log(dayOfTheWeek);
+const getDayOfTheWeek=(day,month,year)=>{
+  let dateOfBirth=new Date(year,month-1,day);
+  console.log(dateOfBirth);
+  
+  return days[dateOfBirth.getDay()];
+  
+}
+
+
 
 document.addEventListener('DOMContentLoaded',()=>{
 
-  
+
 })
 
-// let k=16;
-// let m=10;
-// let C=19;
-// let Y=96;
-
-// let dayOfTheWeek2=(k + Math.floor(2.6*m-0.2)-2*C + Y + Math.floor(Y/4))%7
-
-
-// console.log(dayOfTheWeek2)
