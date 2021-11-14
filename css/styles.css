@@ -31,4 +31,42 @@ nav .nav-link{
   top:0px;
   z-index: -1;
 }
-/*  ##CECBC1 */
+/*highlight section rules*/
+
+.highlight{
+
+  position: inherit;
+  top:20%;
+  width:50%;
+  margin-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.highlight p{
+line-height: 2;
+font-size: 18px;
+font-weight: 400;  
+}
+
+.highlight img{
+  width: 50px;
+}
+.highlight button{
+  width:fit-content;
+  align-self: center;
+}
+
+
+/* media queries */
+/* medium screens */
+@media only screen and (min-width:480px){
+
+
+}
+
+/* large screens */
+@media only screen and (min-width:768px){
+
+  
+}
