@@ -178,7 +178,10 @@ body {
   }
   /* media queries */
   
-  
+  #close-response{
+    margin-left: 85%;
+
+  }
 }
 @media only screen and (min-width:320px) and (max-width:479px){
   body{
@@ -245,8 +248,11 @@ body {
     }
     .response {
       margin-top: 80px;
-      background: #c4c4c4;
+      background: rgba(196, 196, 196,1);
+      
       width: 80%;
+      position: absolute;
+      top:-40px;
     }
     
     #day-display {
@@ -290,7 +296,7 @@ body {
     }
     #akan-answer{
     padding-bottom:40px;
-    color:white;
+    color:#ffffff;
     font-size: 24px;
     font-weight: 700;
     }
@@ -298,5 +304,11 @@ body {
     footer{
       text-align:center;
     }
-  
+    #radio.row{
+      display: inline-block;
+    }
+  #close-response{
+    margin-left: 80%;
+
+  }
 }

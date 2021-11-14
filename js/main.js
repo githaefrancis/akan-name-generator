@@ -34,7 +34,6 @@ let year = 1996;
 
 const getDayOfTheWeek = (day, month, year) => {
   let dateOfBirth = new Date(year, month - 1, day);
-  console.log(dateOfBirth);
 
   return days[dateOfBirth.getDay()];
 };
@@ -75,4 +74,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       displayResponse(akanName, birthday);
     });
+    //close response modal
+    document.querySelector('#close-response').addEventListener('click',(event)=>{
+
+      document.querySelector('.response').style.display="none";
+    });
 });
+
+
+
