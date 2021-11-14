@@ -1,0 +1,1 @@
+$('.header-section').height($(window).height());

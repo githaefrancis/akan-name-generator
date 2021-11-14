@@ -21,3 +21,9 @@ nav .nav-link{
 .navbar-toggler-icon img{
   height:36px;
 }
+
+/* css rules for header section */
+.header-section{
+  background: linear-gradient(90deg, #CECBC1 0%, rgba(213, 205, 179, 0) 100%);
+}
+/*  ##CECBC1 */
