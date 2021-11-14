@@ -1,4 +1,4 @@
-$(".header-section").height($(window).height());
+// $(".header-section").height($(window).height());
 
 let maleAkan = {
   Sunday: "Kwasi",

@@ -34,6 +34,7 @@ nav .nav-link {
   position: absolute;
   top: 0px;
   z-index: -1;
+  height:100vh;
 }
 /*highlight section rules*/
 .content {
@@ -54,9 +55,14 @@ nav .nav-link {
   font-weight: 400;
 }
 
-.highlight img {
+.highlight img.next-icon {
   width: 50px;
 }
+.highlight img.hero{
+  width: 90%;
+  margin-bottom: 20px;
+}
+
 .highlight button {
   width: fit-content;
   align-self: center;
