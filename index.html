@@ -52,7 +52,7 @@
       <h6 class=""><em>Enter your gender & birthday</em></h6>
       <!-- input form -->
       <form id="birthdaySubmit">
-        <div class="row">
+        <div class="row" id="radio">
           <div class="form-check col-md-3">
             <input
               class="form-check-input"
@@ -75,7 +75,7 @@
             <label class="form-check-label" for="female-radio"> Female </label>
           </div>
         </div>
-        <hr class="col-md-6" />
+        <!-- <hr class="col-md-6" /> -->
         <div class="row">
           <div class="form-group col-md-2">
             <label for="day">Day</label>
@@ -85,7 +85,8 @@
               class="form-control"
               id="day"
               placeholder="DD"
-              max="31",
+              max="31"
+              ,
               min="1"
             />
           </div>
@@ -113,11 +114,11 @@
               max="2021"
             />
           </div>
-          <div class="col-md-2">
-            <button type="submit" class="btn btn-primary" id="birthday-submit">
-              Submit
-            </button>
-          </div>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn btn-primary" id="birthday-submit">
+            Submit
+          </button>
         </div>
       </form>
 
