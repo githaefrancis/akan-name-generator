@@ -19,7 +19,6 @@ let maleAkan = {
   Saturday: "Ama",
 };
 
-let akanNames = [femaleAkan, maleAkan];
 let days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 let day=16;
 let month=12;
@@ -33,6 +32,21 @@ const getDayOfTheWeek=(day,month,year)=>{
   
 }
 
+const fetchAkanName=(birthDay,gender)=>{
+  console.log(birthDay);
+  console.log(gender);
+  if(gender==="female"){
+    return femaleAkan[birthDay];
+
+  }
+  else if(gender==="male"){
+    return maleAkan[birthDay];
+  }
+
+  else {
+    return "invalid input";
+  }
+}
 
 
 document.addEventListener('DOMContentLoaded',(event)=>{
@@ -42,10 +56,15 @@ document.addEventListener('DOMContentLoaded',(event)=>{
     event.preventDefault();
     alert('congratulations');
     let day=parseInt(document.querySelector('#day').value);
-    let month=parseInt(document.querySelector('#month'.value));
-    let year=parseInt(document.querySelector('#year'));
-    alert(day);
+    let month=parseInt(document.querySelector('#month').value);
+    let year=parseInt(document.querySelector('#year').value);
+    let gender=document.querySelector('[name="gender-radio"]:checked').value;
+    alert(gender);
+     let birthday=getDayOfTheWeek(day,month,year);
+    // console.log(day + month +year)
+    // let akanName=fetchAkanName(birthday,gender);
 
+    // console.log(akanName);
     });
     
 });
