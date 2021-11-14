@@ -140,6 +140,13 @@ font-weight: 700;
 
   margin-top: 10%;
 }
+#about-introduction{
+  margin-top: 75px;
+}
+.intro-card{
+  background:transparent;
+  border:none
+}
 /* media queries */
 /* medium screens */
 @media only screen and (min-width: 480px) {
