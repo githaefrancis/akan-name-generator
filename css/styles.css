@@ -133,6 +133,13 @@ color:white;
 font-size: 24px;
 font-weight: 700;
 }
+
+/* about page */
+
+#akan-names-list{
+
+  margin-top: 10%;
+}
 /* media queries */
 /* medium screens */
 @media only screen and (min-width: 480px) {
