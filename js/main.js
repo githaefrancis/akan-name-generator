@@ -19,63 +19,60 @@ let femaleAkan = {
   Saturday: "Ama",
 };
 
-let days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-let day=16;
-let month=12;
-let year=1996;
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = 16;
+let month = 12;
+let year = 1996;
 
-const getDayOfTheWeek=(day,month,year)=>{
-  let dateOfBirth=new Date(year,month-1,day);
+const getDayOfTheWeek = (day, month, year) => {
+  let dateOfBirth = new Date(year, month - 1, day);
   console.log(dateOfBirth);
-  
+
   return days[dateOfBirth.getDay()];
-  
-}
+};
 
-const fetchAkanName=(birthDay,gender)=>{
-  console.log(birthDay);
-  console.log(gender);
-  if(gender==="female"){
+const fetchAkanName = (birthDay, gender) => {
+  if (gender === "female") {
     return femaleAkan[birthDay];
-
-  }
-  else if(gender==="male"){
+  } else if (gender === "male") {
     return maleAkan[birthDay];
-  }
-
-  else {
+  } else {
     return "invalid input";
   }
-}
-const displayResponse=(responseName,birthDayOfWeek)=>{
+};
+const displayResponse = (responseName, birthDayOfWeek) => {
+  document.querySelector("#day-display").innerHTML = birthDayOfWeek;
+  let akanAnswer = document.querySelector("#akan-answer");
+  akanAnswer.innerHTML = `Your Akan name is ${responseName}`;
+  document.querySelector(".response").style.display = "block";
+};
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  document
+    .querySelector("#birthdaySubmit")
+    .addEventListener("submit", (event) => {
+      //stop the page from reloading
+      event.preventDefault();
 
-  document.querySelector('#day-display').innerHTML=birthDayOfWeek;
-  let akanAnswer=document.querySelector('#akan-answer');
-  akanAnswer.innerHTML=`Your Akan name is ${responseName}`;
-  document.querySelector('.response').style.display="block";
-}
+      let day = parseInt(document.querySelector("#day").value);
+      let month = parseInt(document.querySelector("#month").value);
+      let year = parseInt(document.querySelector("#year").value);
+      let gender = document.querySelector(
+        '[name="gender-radio"]:checked'
+      ).value;
+      let birthday = getDayOfTheWeek(day, month, year);
+      let akanName = fetchAkanName(birthday, gender);
 
-document.addEventListener('DOMContentLoaded',(event)=>{
+      console.log(akanName);
 
-  document.querySelector('#birthdaySubmit').addEventListener('submit',(event)=>{
-    //stop the page from reloading
-    event.preventDefault();
-    alert('congratulations');
-    let day=parseInt(document.querySelector('#day').value);
-    let month=parseInt(document.querySelector('#month').value);
-    let year=parseInt(document.querySelector('#year').value);
-    let gender=document.querySelector('[name="gender-radio"]:checked').value;
-    alert(gender);
-     let birthday=getDayOfTheWeek(day,month,year);
-    // console.log(day + month +year)
-    let akanName=fetchAkanName(birthday,gender);
-
-    console.log(akanName);
-
-    displayResponse(akanName,birthday);
+      displayResponse(akanName, birthday);
     });
-    
 });
-
-

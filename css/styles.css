@@ -147,7 +147,36 @@ font-weight: 700;
   background:transparent;
   border:none
 }
+.about-hero{
+  width:50%;
+  align-self: center;
+}
+.akan-male{
+  position: absolute;
+  top:300px;
+  left:20px
+
+}
+
+.akan-female{
+  position: absolute;
+  top:300px;
+  right: -25%
+}
+
+/* footer */
+footer{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+
+}
 /* media queries */
+
+@media only screen and (min-width:320px){
+
+
+}
 /* medium screens */
 @media only screen and (min-width: 480px) {
 }
