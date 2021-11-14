@@ -49,9 +49,33 @@
     </div>
     <div class="" id="app">
       <h1>Generate Your Akan Name</h1>
-      <h6><em>Enter your birthday</em></h6>
+      <h6 class=""><em>Enter your gender & birthday</em></h6>
       <!-- input form -->
       <form action="">
+        <div class="row">
+          <div class="form-check col-md-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender-radio"
+              id="gridRadios1"
+              value="male"
+              checked
+            />
+            <label class="form-check-label" for="gridRadios1"> Male </label>
+          </div>
+          <div class="form-check col-md-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender-radio"
+              id="female-radio"
+              value="female"
+            />
+            <label class="form-check-label" for="female-radio"> Female </label>
+          </div>
+        </div>
+        <hr class="col-md-6" />
         <div class="row">
           <div class="form-group col-md-2">
             <label for="day">Day</label>
@@ -82,9 +106,19 @@
               placeholder="YY"
               max="2021"
             />
-          </di>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary" id="birthday-submit">
+              Submit
+            </button>
+          </div>
         </div>
       </form>
+
+      <div class="response">
+        <h4 id="day-display">Monday</h4>
+        <p>Your Akan Name is Francis</p>
+      </div>
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
