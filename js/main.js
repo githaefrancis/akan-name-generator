@@ -35,8 +35,14 @@ const getDayOfTheWeek=(day,month,year)=>{
 
 
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',(event)=>{
 
+  document.querySelector('#birthdaySubmit').addEventListener('submit',(event)=>{
+    //stop the page from reloading
+    event.preventDefault();
+    alert('congratulations');
+    });
+    
+});
 
-})
 
