@@ -1,6 +1,6 @@
 $(".header-section").height($(window).height());
 
-let femaleAkan = {
+let maleAkan = {
   Sunday: "Kwasi",
   Monday: "Kwadwo",
   Tuesday: "Kwabena",
@@ -9,7 +9,7 @@ let femaleAkan = {
   Friday: "Kofi",
   Saturday: "Kwame",
 };
-let maleAkan = {
+let femaleAkan = {
   Sunday: "Akosua",
   Monday: "Adwoa",
   Tuesday: "Abenaa",
@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded',(event)=>{
     alert(gender);
      let birthday=getDayOfTheWeek(day,month,year);
     // console.log(day + month +year)
-    // let akanName=fetchAkanName(birthday,gender);
+    let akanName=fetchAkanName(birthday,gender);
 
-    // console.log(akanName);
+    console.log(akanName);
     });
     
 });
