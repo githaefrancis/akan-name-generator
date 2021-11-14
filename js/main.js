@@ -47,7 +47,12 @@ const fetchAkanName=(birthDay,gender)=>{
     return "invalid input";
   }
 }
+const displayResponse=(responseName,birthDayOfWeek)=>{
 
+
+  document.querySelector('#day-display').innerHTML=birthDayOfWeek;
+  document.querySelector('#akan-answer').innerHTML=`Your Akan name is ${responseName}`;
+}
 
 document.addEventListener('DOMContentLoaded',(event)=>{
 
@@ -65,6 +70,8 @@ document.addEventListener('DOMContentLoaded',(event)=>{
     let akanName=fetchAkanName(birthday,gender);
 
     console.log(akanName);
+
+    displayResponse(akanName,birthday);
     });
     
 });
