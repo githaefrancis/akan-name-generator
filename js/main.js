@@ -100,8 +100,10 @@ const validate = (e) => {
       } else {
         if (newMaxDays < dayInput) {
           errors.day = "<p>invalid day</p>";
+          isValidDay = false;
         } else {
           errors.day = "";
+          isValidDay = true;
         }
         errors.month = "";
         document.getElementById(inputId).style.borderColor = "green";
@@ -119,8 +121,10 @@ const validate = (e) => {
       } else {
         if (newMaxDays < dayInput) {
           errors.day = "<p>invalid day</p>";
+          isValidDay = false;
         } else {
           errors.day = "";
+          isValidDay = true;
         }
 
         errors.year = "";
