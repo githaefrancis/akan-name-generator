@@ -52,7 +52,66 @@ const displayResponse = (responseName, birthDayOfWeek) => {
   document.querySelector(".response").style.display = "block";
 };
 
-// const validate = (day, month, year) => {};
+const validate = (e) => {
+
+  if (e.target.nodeName.toLowerCase() === "input") {
+    let inputId = e.target.id;
+    if (inputId === "day") {
+      isValidDay=false;
+      dayValue = parseInt(e.target.value);
+      document.getElementById(inputId).style.borderColor = "red";
+      
+      if (dayValue < 1 || dayValue > 31) {
+        //alert(typeof dayValue);
+        errors.day = "invalid day";
+      } else if (Number.isNaN(dayValue)) {
+        //alert("YOU ARE NULL");
+        errors.day = "<p>The day is null</p>";
+      } else {
+        errors.day = "";
+        document.getElementById(inputId).style.borderColor = "green";
+        isValidDay = true;
+      }
+    } else if (inputId === "month") {
+      isValidMonth=false;
+      dayValue = parseInt(e.target.value);
+      document.getElementById(inputId).style.borderColor = "red";
+      if (dayValue < 1 || dayValue > 12) {
+        //alert(typeof dayValue);
+        errors.month = "invalid month";
+      } else if (Number.isNaN(dayValue)) {
+        //alert("YOU ARE NULL");
+        errors.month = "<p>The month is null</p>";
+      } else {
+        errors.month = "";
+        document.getElementById(inputId).style.borderColor = "green";
+        isValidMonth = true;
+      }
+    }
+    else if (inputId === "year") {
+      isValidYear=false;
+      dayValue = parseInt(e.target.value);
+      document.getElementById(inputId).style.borderColor = "red";
+      if (dayValue < 1800 || dayValue > 2021) {
+        //alert(typeof dayValue);
+        errors.year = "invalid year";
+      } else if (Number.isNaN(dayValue)) {
+        //alert("YOU ARE NULL");
+        errors.year = "<p>The year is null</p>";
+      } else {
+        errors.year = "";
+        document.getElementById(inputId).style.borderColor = "green";
+        isValidYear = true;
+      }
+    }
+    else{
+      return;
+    }
+    
+
+
+  }
+};
 let errors = { day: "", month: "", year: "" };
 let isValidDay = false;
 let isValidMonth = false;
@@ -63,68 +122,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let errorPrompt = document.getElementById("error");
 
     // let params=["day","month","year"];
-    if (e.target.nodeName.toLowerCase() === "input") {
-      let inputId = e.target.id;
-      if (inputId === "day") {
-        isValidDay=false;
-        dayValue = parseInt(e.target.value);
-        document.getElementById(inputId).style.borderColor = "red";
-        
-        if (dayValue < 1 || dayValue > 31) {
-          //alert(typeof dayValue);
-          errors.day = "invalid day";
-        } else if (Number.isNaN(dayValue)) {
-          //alert("YOU ARE NULL");
-          errors.day = "<p>The day is null</p>";
-        } else {
-          errors.day = "";
-          document.getElementById(inputId).style.borderColor = "green";
-          isValidDay = true;
-        }
-      } else if (inputId === "month") {
-        isValidMonth=false;
-        dayValue = parseInt(e.target.value);
-        document.getElementById(inputId).style.borderColor = "red";
-        if (dayValue < 1 || dayValue > 12) {
-          //alert(typeof dayValue);
-          errors.month = "invalid month";
-        } else if (Number.isNaN(dayValue)) {
-          //alert("YOU ARE NULL");
-          errors.month = "<p>The month is null</p>";
-        } else {
-          errors.month = "";
-          document.getElementById(inputId).style.borderColor = "green";
-          isValidMonth = true;
-        }
-      }
-      else if (inputId === "year") {
-        isValidYear=false;
-        dayValue = parseInt(e.target.value);
-        document.getElementById(inputId).style.borderColor = "red";
-        if (dayValue < 1800 || dayValue > 2021) {
-          //alert(typeof dayValue);
-          errors.year = "invalid year";
-        } else if (Number.isNaN(dayValue)) {
-          //alert("YOU ARE NULL");
-          errors.year = "<p>The year is null</p>";
-        } else {
-          errors.year = "";
-          document.getElementById(inputId).style.borderColor = "green";
-          isValidYear = true;
-        }
-      }
-      else{
-        return;
-      }
-      
-
-      if (isValidDay && isValidMonth && isValidYear) {
-        document.getElementById("birthday-submit").disabled = false;
-      } else {
-        document.getElementById("birthday-submit").disabled = true;
-      }
-      errorPrompt.innerHTML = `<p>${errors.day}</p><p>${errors.month}</p><p>${errors.year}</p>`;
+    validate(e,errorPrompt);
+    if (isValidDay && isValidMonth && isValidYear) {
+      document.getElementById("birthday-submit").disabled = false;
+    } else {
+      document.getElementById("birthday-submit").disabled = true;
     }
+    errorPrompt.innerHTML = `<p>${errors.day}</p><p>${errors.month}</p><p>${errors.year}</p>`;
   });
   document
     .querySelector("#birthdaySubmit")
