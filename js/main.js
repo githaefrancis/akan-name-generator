@@ -1,5 +1,3 @@
-
-
 let maleAkan = {
   Sunday: "Kwasi",
   Monday: "Kwadwo",
@@ -34,7 +32,7 @@ let year = 1996;
 
 const getDayOfTheWeek = (day, month, year) => {
   let dateOfBirth = new Date(year, month - 1, day);
-
+  console.log(dateOfBirth);
   return days[dateOfBirth.getDay()];
 };
 
@@ -54,7 +52,33 @@ const displayResponse = (responseName, birthDayOfWeek) => {
   document.querySelector(".response").style.display = "block";
 };
 
+const validate = (day, month, year) => {};
+
 document.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelector("form").addEventListener("keyup", (e) => {
+    // alert("you just clicked");
+    let errorPrompt=document.getElementById('error');
+    let errors={day:"",month:"",year:""};
+    if(e.target.nodeName.toLowerCase()==="input"){
+      
+      if (e.target.id==='day'){
+      dayValue=parseInt(e.target.value);  
+      if(dayValue<1 || dayValue>31){
+        //alert(typeof dayValue);
+        errors.day="invalid date";
+        
+      }
+      else if (Number.isNaN(dayValue)){
+        //alert("YOU ARE NULL");
+        errors.day="<p>The day is null</p>";
+      }
+      else{
+        errors.day="";
+      }
+      errorPrompt.innerHTML=`<p>${errors.day}</p><p>${errors.month}</p><p>${errors.year}</p>`;
+      }
+    }
+  });
   document
     .querySelector("#birthdaySubmit")
     .addEventListener("submit", (event) => {
@@ -74,12 +98,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       displayResponse(akanName, birthday);
     });
-    //close response modal
-    document.querySelector('#close-response').addEventListener('click',(event)=>{
-
-      document.querySelector('.response').style.display="none";
+  //close response modal
+  document
+    .querySelector("#close-response")
+    .addEventListener("click", (event) => {
+      document.querySelector(".response").style.display = "none";
     });
 });
-
-
-
