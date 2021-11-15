@@ -54,9 +54,11 @@ const displayResponse = (responseName, birthDayOfWeek) => {
 
 // const validate = (day, month, year) => {};
 let errors = { day: "", month: "", year: "" };
-
+let isValidDay = false;
+let isValidMonth = false;
+let isValidYear = false;
 document.addEventListener("DOMContentLoaded", (event) => {
-  document.querySelector("form").addEventListener("keyup", (e) => {
+  document.querySelector("form").addEventListener("change", (e) => {
     // alert("you just clicked");
     let errorPrompt = document.getElementById("error");
 
@@ -64,9 +66,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (e.target.nodeName.toLowerCase() === "input") {
       let inputId = e.target.id;
       if (inputId === "day") {
-        let isValidDay = false;
+        isValidDay=false;
         dayValue = parseInt(e.target.value);
         document.getElementById(inputId).style.borderColor = "red";
+        
         if (dayValue < 1 || dayValue > 31) {
           //alert(typeof dayValue);
           errors.day = "invalid day";
@@ -79,7 +82,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           isValidDay = true;
         }
       } else if (inputId === "month") {
-        let isValidMonth=false;
+        isValidMonth=false;
         dayValue = parseInt(e.target.value);
         document.getElementById(inputId).style.borderColor = "red";
         if (dayValue < 1 || dayValue > 12) {
@@ -94,8 +97,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
           isValidMonth = true;
         }
       }
-      if (inputId === "year") {
-        let isValidYear=false;
+      else if (inputId === "year") {
+        isValidYear=false;
         dayValue = parseInt(e.target.value);
         document.getElementById(inputId).style.borderColor = "red";
         if (dayValue < 1800 || dayValue > 2021) {
@@ -110,13 +113,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
           isValidYear = true;
         }
       }
-      errorPrompt.innerHTML = `<p>${errors.day}</p><p>${errors.month}</p><p>${errors.year}</p>`;
+      else{
+        return;
+      }
+      
 
       if (isValidDay && isValidMonth && isValidYear) {
         document.getElementById("birthday-submit").disabled = false;
       } else {
-        document.getElementById("birthday-submit").disabled =true;
+        document.getElementById("birthday-submit").disabled = true;
       }
+      errorPrompt.innerHTML = `<p>${errors.day}</p><p>${errors.month}</p><p>${errors.year}</p>`;
     }
   });
   document
