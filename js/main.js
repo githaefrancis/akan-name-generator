@@ -32,7 +32,6 @@ let year = 1996;
 
 const getDayOfTheWeek = (day, month, year) => {
   let dateOfBirth = new Date(year, month - 1, day);
-  console.log(dateOfBirth);
   return days[dateOfBirth.getDay()];
 };
 
@@ -52,29 +51,37 @@ const displayResponse = (responseName, birthDayOfWeek) => {
   document.querySelector(".response").style.display = "block";
 };
 
-
-const getMonthMax=(month,year)=>{
-  if(month===){}
-}
+const getMonthMax = (month, year) => {
+  if (month === 9 || month === 4 || month === 6 || month === 11) {
+    return 30;
+  } else if (month === 2) {
+    if (year % 4 === 0 || Number.isNaN(year)) {
+      return 29;
+    } else {
+      return 28;
+    }
+  } else {
+    return 31;
+  }
+};
 
 const validate = (e) => {
-  let dayInput=document.getElementById('day');
-  let monthInput=document.getElementById('month');
-  let yearInput=document.getElementById('year');
-
+  let dayInput = parseInt(document.getElementById("day").value);
+  let monthInput = parseInt(document.getElementById("month").value);
+  let yearInput = parseInt(document.getElementById("year").value);
 
   if (e.target.nodeName.toLowerCase() === "input") {
     let inputId = e.target.id;
+
     if (inputId === "day") {
-      isValidDay=false;
+      isValidDay = false;
       dayValue = parseInt(e.target.value);
       document.getElementById(inputId).style.borderColor = "red";
-      
-      if (dayValue < 1 || dayValue > 31) {
-        //alert(typeof dayValue);
+      let maxDays = getMonthMax(monthInput, yearInput);
+
+      if (dayValue < 1 || dayValue > maxDays) {
         errors.day = "invalid day";
       } else if (Number.isNaN(dayValue)) {
-        //alert("YOU ARE NULL");
         errors.day = "<p>The day is null</p>";
       } else {
         errors.day = "";
@@ -82,43 +89,47 @@ const validate = (e) => {
         isValidDay = true;
       }
     } else if (inputId === "month") {
-      isValidMonth=false;
+      isValidMonth = false;
       dayValue = parseInt(e.target.value);
       document.getElementById(inputId).style.borderColor = "red";
+      newMaxDays = getMonthMax(monthInput, yearInput);
       if (dayValue < 1 || dayValue > 12) {
-        //alert(typeof dayValue);
-        errors.month = "invalid month";
+        errors.month = "<p>invalid month</p>";
       } else if (Number.isNaN(dayValue)) {
-        //alert("YOU ARE NULL");
         errors.month = "<p>The month is null</p>";
       } else {
+        if (newMaxDays < dayInput) {
+          errors.day = "<p>invalid day</p>";
+        } else {
+          errors.day = "";
+        }
         errors.month = "";
         document.getElementById(inputId).style.borderColor = "green";
         isValidMonth = true;
       }
-    }
-    else if (inputId === "year") {
-      isValidYear=false;
+    } else if (inputId === "year") {
+      isValidYear = false;
       dayValue = parseInt(e.target.value);
       document.getElementById(inputId).style.borderColor = "red";
+      newMaxDays = getMonthMax(monthInput, yearInput);
       if (dayValue < 1800 || dayValue > 2021) {
-        //alert(typeof dayValue);
-        errors.year = "invalid year";
+        errors.year = "<p>invalid year</p>";
       } else if (Number.isNaN(dayValue)) {
-        //alert("YOU ARE NULL");
         errors.year = "<p>The year is null</p>";
       } else {
+        if (newMaxDays < dayInput) {
+          errors.day = "<p>invalid day</p>";
+        } else {
+          errors.day = "";
+        }
+
         errors.year = "";
         document.getElementById(inputId).style.borderColor = "green";
         isValidYear = true;
       }
-    }
-    else{
+    } else {
       return;
     }
-    
-
-
   }
 };
 let errors = { day: "", month: "", year: "" };
@@ -126,12 +137,9 @@ let isValidDay = false;
 let isValidMonth = false;
 let isValidYear = false;
 document.addEventListener("DOMContentLoaded", (event) => {
-  document.querySelector("form").addEventListener("change", (e) => {
-    // alert("you just clicked");
+  document.querySelector("form").addEventListener("input", (e) => {
     let errorPrompt = document.getElementById("error");
-
-    // let params=["day","month","year"];
-    validate(e,errorPrompt);
+    validate(e, errorPrompt);
     if (isValidDay && isValidMonth && isValidYear) {
       document.getElementById("birthday-submit").disabled = false;
     } else {
@@ -153,8 +161,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       ).value;
       let birthday = getDayOfTheWeek(day, month, year);
       let akanName = fetchAkanName(birthday, gender);
-
-      console.log(akanName);
 
       displayResponse(akanName, birthday);
     });
