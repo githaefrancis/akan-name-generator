@@ -52,7 +52,16 @@ const displayResponse = (responseName, birthDayOfWeek) => {
   document.querySelector(".response").style.display = "block";
 };
 
+
+const getMonthMax=(month,year)=>{
+  if(month===){}
+}
+
 const validate = (e) => {
+  let dayInput=document.getElementById('day');
+  let monthInput=document.getElementById('month');
+  let yearInput=document.getElementById('year');
+
 
   if (e.target.nodeName.toLowerCase() === "input") {
     let inputId = e.target.id;
