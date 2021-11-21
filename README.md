@@ -36,7 +36,7 @@ Francis Githae
 Email: mureithigithae@gmail.com
 
 ## License
-This project is under the MIT License [click here for more information](LICENSE.md)
+This project is under the MIT License [click here for more information](LICENSE)
 
 &copy; 2021 Francis Githae
 
